@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require('express')
 
 const router = express.Router();
 
@@ -6,24 +6,13 @@ router.get('/', (req, res) => {
   res.send({ message: 'Welcome' });
 });
 
-router.post('/success', (req, res) => {
-  console.log(req.body)
-  res.send({ message: 'success here' })
-})
-
-router.post('/cancel', (req, res) => {
-  console.log(req.body)
-  res.send({ response: 'cancel here' })
-})
-
-router.post('/fail', (req, res) => {
-  console.log(req.body)
-  res.send({ response: 'fail here' })
-})
-
-router.get('/ipn', (req, res) => {
-  console.log(req.body)
-  res.send({ response: 'ipn here' })
+router.post('/payments/ipn', (req, res) => {
+  res.send({
+    response: {
+      data: req.body,
+      message: "Payment IPN send successfully"
+    }
+  })
 })
 
 router.post('/payments/success', (req, res) => {
