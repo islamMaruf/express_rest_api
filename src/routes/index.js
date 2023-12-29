@@ -6,7 +6,7 @@ router.get('/', (req, res) => {
   res.send({ message: 'Welcome' });
 });
 
-router.post('/payments/ipn', (req, res) => {
+router.post('/ipn', (req, res) => {
   res.send({
     response: {
       data: req.body,
@@ -15,7 +15,7 @@ router.post('/payments/ipn', (req, res) => {
   })
 })
 
-router.post('/payments/success', (req, res) => {
+router.post('/status/success', (req, res) => {
   res.send({
     response: {
       data: req.body,
@@ -24,7 +24,7 @@ router.post('/payments/success', (req, res) => {
   })
 })
 
-router.post('/payments/cancelled', (req, res) => {
+router.post('/status/cancel', (req, res) => {
   console.log(req.body)
   res.send({
     response: {
@@ -34,7 +34,7 @@ router.post('/payments/cancelled', (req, res) => {
   })
 })
 
-router.post('/payments/failure', (req, res) => {
+router.post('/status/fail', (req, res) => {
   res.send({
     response: {
       data: req.body,
